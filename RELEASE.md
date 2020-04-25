@@ -34,20 +34,21 @@ git push --tags
 
 ## Upload to pypi
 
-1. Upload to pypi-test:
+1. Clean & Build
 
 ```sh
+rm -rf build dist
 python setup.py sdist bdist_wheel
-twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 ```
 
-2. Test package:
+3. Upload to pypi-test and test
 
 ```sh
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 pip3 install -i https://test.pypi.org/simple/ normcap
 ```
 
-3. Upload to pypi:
+3. Upload to pypi
 
 ```sh
 twine upload dist/*

@@ -33,3 +33,22 @@ git push follow-tags
 2. Check if build ran through
 
 ## Upload to pypi
+
+1. Upload to pypi-test:
+
+```sh
+python setup.py sdist bdist_wheel
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+```
+
+2. Test package:
+
+```sh
+pip3 install -i https://test.pypi.org/simple/ normcap
+```
+
+3. Upload to pypi:
+
+```sh
+twine upload dist/*
+```

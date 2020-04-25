@@ -27,7 +27,7 @@ bumpversion patch
 git checkout -b master
 git pull
 git tag v0.1.4
-git push follow-tags
+git push --tags
 ```
 
 2. Check if build ran through
